@@ -24,6 +24,7 @@ class UserController extends Controller
 
 
     public function enderecoId($id) {
+
         $user = User::find($id);
 
         if($user) {
@@ -34,4 +35,33 @@ class UserController extends Controller
 
         return $this->array;
     }
+
+    public function cidades() {
+        $cidades = User::all();
+
+        foreach($cidades as $cidade) {
+            $this->array['result'][] = [
+                'id' => $cidade->id,
+                'cidade' => $cidade->cidade
+            ];
+        }
+
+        return $this->array;
+    }
+
+
+    public function cidadeId($id) {
+
+        $user = User::find($id);
+
+        if($user) {
+            $this->array['result'] = $user->cidade;
+        } else {
+            $this->array['error'] = 'ID não encontrado';
+        }
+
+        return $this->array;
+    }
+
+
 }

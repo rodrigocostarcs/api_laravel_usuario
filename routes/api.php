@@ -18,5 +18,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('obterendereco',[UserController::class,'enderecos']);
-Route::get('obterendereco/{id}',[UserController::class,'enderecoId']);
+Route::get('obterenderecos',[UserController::class,'enderecos']);
+Route::get('endereco/{id}',[UserController::class,'enderecoId']);
+
+Route::get('obtercidades',[UserController::class,'cidades']);
+Route::get('cidade/{id}',[UserController::class,'cidadeId']);
