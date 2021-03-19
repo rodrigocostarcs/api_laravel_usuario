@@ -26,3 +26,7 @@ Route::get('cidade/{id}',[UserController::class,'cidadeId']);
 
 Route::get('obterestados',[UserController::class,'estados']);
 Route::get('estado/{id}',[UserController::class,'estadoId']);
+
+Route::get('obterusers',[UserController::class,'users']);
+Route::get('user/{id}',[UserController::class,'userId']);
+

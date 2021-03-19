@@ -89,4 +89,42 @@ class UserController extends Controller
 
         return $this->array;
     }
+
+    public function users() {
+        $users = User::all();
+
+        foreach($users as $user) {
+            $this->array['result'][] = [
+                'id' => $user->id,
+                'nome' => $user->name,
+                'email' => $user->email,
+                'endereco' => $user->endereco,
+                'cidade' => $user->cidade,
+                'estado' => $user->estado
+            ];
+        }
+
+        return $this->array;
+    }
+
+
+    public function userId($id) {
+
+        $user = User::find($id);
+
+        if($user) {
+            $this->array['result'][] = [
+                'id' => $user->id,
+                'nome' => $user->name,
+                'email' => $user->email,
+                'endereco' => $user->endereco,
+                'cidade' => $user->cidade,
+                'estado' => $user->estado
+            ];
+        } else {
+            $this->array['error'] = 'ID não encontrado';
+        }
+
+        return $this->array;
+    }
 }
