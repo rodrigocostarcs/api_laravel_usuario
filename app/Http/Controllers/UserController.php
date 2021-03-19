@@ -127,4 +127,16 @@ class UserController extends Controller
 
         return $this->array;
     }
+
+    public function userDelete($id) {
+        $user = User::find($id);
+
+        if($user) {
+            $user->delete();
+        } else {
+            $this->array['error'] = 'ID inexistente';
+        }
+
+        return $this->array;
+    }
 }

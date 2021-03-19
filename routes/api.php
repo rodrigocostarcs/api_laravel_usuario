@@ -29,4 +29,4 @@ Route::get('estado/{id}',[UserController::class,'estadoId']);
 
 Route::get('obterusers',[UserController::class,'users']);
 Route::get('user/{id}',[UserController::class,'userId']);
-
+Route::delete('user{id}',[UserController::class,'userDelete']);
