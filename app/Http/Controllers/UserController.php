@@ -63,5 +63,30 @@ class UserController extends Controller
         return $this->array;
     }
 
+    public function estados() {
+        $estados = User::all();
 
+        foreach($estados as $estado) {
+            $this->array['result'][] = [
+                'id' => $estado->id,
+                'estado' => $estado->estado
+            ];
+        }
+
+        return $this->array;
+    }
+
+
+    public function estadoId($id) {
+
+        $user = User::find($id);
+
+        if($user) {
+            $this->array['result'] = $user->estado;
+        } else {
+            $this->array['error'] = 'ID não encontrado';
+        }
+
+        return $this->array;
+    }
 }

@@ -23,3 +23,6 @@ Route::get('endereco/{id}',[UserController::class,'enderecoId']);
 
 Route::get('obtercidades',[UserController::class,'cidades']);
 Route::get('cidade/{id}',[UserController::class,'cidadeId']);
+
+Route::get('obterestados',[UserController::class,'estados']);
+Route::get('estado/{id}',[UserController::class,'estadoId']);
